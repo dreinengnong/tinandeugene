@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tin &amp; Eugene</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&amp;family=Jost:wght@300;400&amp;display=swap">
+<style>
+:root{--bg:#FFFFFF;--bg2:#F5EFE3;--ink:#3A352D;--mut:#6B6150;--line:#D9CFBA;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1B1915;--bg2:#25221C;--ink:#F1EBDD;--mut:#BDB29C;--line:#4A4336;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#1B1915;--bg2:#25221C;--ink:#F1EBDD;--mut:#BDB29C;--line:#4A4336;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:300 17px/1.6 'Jost',system-ui,sans-serif}
+section{padding:clamp(72px,12vw,120px) 24px;display:flex;flex-direction:column;align-items:center;gap:22px;text-align:center}
+section{position:relative;z-index:1}
+.alt{background:color-mix(in srgb,var(--bg2) 78%,transparent)}
+.bg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.bg i{position:absolute;border-radius:50%;filter:blur(70px);opacity:.75;background:#EFE5D0;animation:drift 28s ease-in-out infinite alternate}
+.bg i:nth-child(1){width:46vmax;height:46vmax;left:-12vmax;top:-10vmax}
+.bg i:nth-child(2){width:38vmax;height:38vmax;right:-14vmax;top:30vh;animation-duration:36s;animation-delay:-9s}
+.bg i:nth-child(3){width:42vmax;height:42vmax;left:22vw;bottom:-18vmax;animation-duration:32s;animation-delay:-16s}
+@keyframes drift{to{transform:translate(8vmax,6vmax) scale(1.15)}}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .bg i{background:#2F2A20}}
+:root[data-theme="dark"] .bg i{background:#2F2A20}
+@media(prefers-reduced-motion:reduce){.bg i{animation:none}}
+h1,h2,.big,.amp,.dt,.sig{font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;margin:0}
+h1{font-size:clamp(64px,15vw,128px);line-height:1;letter-spacing:.02em}
+h2{font-size:clamp(40px,7vw,60px);font-weight:400}
+.amp{font-style:italic;font-size:44px;color:var(--mut)}
+.k{font-size:13px;letter-spacing:.3em;color:var(--mut)}
+.ln{width:1px;height:56px;background:var(--mut)}
+.dt{font-size:clamp(24px,4vw,32px);letter-spacing:.08em}
+.big{font-size:30px;font-weight:400;line-height:1.25}
+.sig{font-style:italic;font-size:30px}
+p{margin:0;max-width:460px}
+.grid{display:flex;flex-wrap:wrap;justify-content:center;gap:48px 72px}
+.grid>div{width:240px;display:flex;flex-direction:column;gap:10px}
+form,.card{width:100%;max-width:460px;box-sizing:border-box;display:flex;flex-direction:column;gap:14px;text-align:left}
+.card{background:var(--bg2);padding:36px 28px;align-items:center;text-align:center;margin-top:12px}
+section:not(.alt) .card{background:var(--bg2)}
+label{display:flex;flex-direction:column;gap:6px;font-size:13px;letter-spacing:.14em;color:var(--mut);text-align:left}
+input,textarea{box-sizing:border-box;width:100%;min-height:48px;padding:10px 14px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:300 17px 'Jost',sans-serif;letter-spacing:0}
+input:focus,textarea:focus,button:focus-visible,.btn:focus-visible{outline:2px solid var(--mut);outline-offset:2px}
+button,.btn{min-height:48px;padding:0 24px;border:1px solid var(--ink);background:var(--ink);color:var(--bg);font:400 13px 'Jost',sans-serif;letter-spacing:.26em;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;box-sizing:border-box}
+.o,.row button{background:transparent;color:var(--ink)}
+.row button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.row{display:flex;gap:12px;width:100%}.row button{flex:1}
+.edit{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:5}
+.pn{position:fixed;inset:0;z-index:9;overflow:auto;background:var(--bg);padding:32px 24px calc(48px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;align-items:center;gap:14px}
+.pn>*{width:100%;max-width:560px;box-sizing:border-box}
+.pn p{font-size:15px;color:var(--mut)}
+.story{max-width:560px;font-size:19px;line-height:1.9}
+.lk{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.tl{width:100%;max-width:520px;display:flex;flex-direction:column}
+.tl>div{display:flex;gap:24px;padding:16px 0;border-bottom:1px solid var(--line);text-align:left;align-items:baseline}
+.tl .big{width:130px;flex:none;font-size:26px}
+.qs{width:100%;max-width:560px;text-align:left}
+details{border-bottom:1px solid var(--line);padding:18px 0}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;font:400 24px/1.3 'Cormorant Garamond',Georgia,serif}
+summary::-webkit-details-marker{display:none}
+summary::after{content:'+';color:var(--mut)}
+details[open] summary::after{content:'–'}
+details p{max-width:none;margin-top:10px;color:var(--mut)}
+.sp{width:min(240px,60vw);height:40px;color:var(--mut);opacity:.75}
+.crest{width:72px;height:72px;border:1px solid var(--mut);border-radius:50%;display:flex;align-items:center;justify-content:center;font:italic 400 24px 'Cormorant Garamond',Georgia,serif;letter-spacing:.08em;color:var(--mut)}
+#root>section:first-child{margin:clamp(12px,3vw,32px);border:1px solid var(--line);outline:1px solid var(--line);outline-offset:-8px}
+@keyframes up{from{opacity:0;transform:translateY(16px)}}
+#root>section{animation:up 1s ease both}
+#root>section:nth-child(2){animation-delay:.15s}
+h1{animation:lt 1.8s ease both}
+h1+.amp+h1{animation-delay:.3s}
+@keyframes lt{from{letter-spacing:.2em;opacity:0}}
+.amp{animation:fl 5s ease-in-out infinite alternate}
+@keyframes fl{to{transform:translateY(-8px)}}
+.crest{animation:halo 4.5s ease-out infinite}
+@keyframes halo{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--mut) 40%,transparent)}100%{box-shadow:0 0 0 22px transparent}}
+button,.btn{transition:transform .25s ease,background .25s ease,color .25s ease}
+button:hover,.btn:hover{transform:translateY(-2px)}
+#root.on .rv{opacity:0;transform:translateY(24px);transition:opacity 1.1s ease,transform 1.1s ease}
+#root.on .rv.in{opacity:1;transform:none}
+#root.on .sp path{stroke-dasharray:300;stroke-dashoffset:300;transition:stroke-dashoffset 2.4s ease}
+#root.on .sp.in path{stroke-dashoffset:0}
+#root.on .sp path:nth-child(2){transition-delay:.4s}
+#root.on .sp path:nth-child(3){transition-delay:.8s}
+.pt{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.pt b{position:absolute;top:-30px;left:var(--l);width:var(--s);height:calc(var(--s)*1.4);border-radius:80% 0 80% 0;background:color-mix(in srgb,var(--mut) 30%,var(--bg));opacity:.65;animation:fall var(--d) linear var(--t) infinite}
+@keyframes fall{0%{transform:translate(0,-5vh) rotate(0)}25%{transform:translate(24px,28vh) rotate(90deg)}50%{transform:translate(-20px,55vh) rotate(200deg)}75%{transform:translate(22px,82vh) rotate(290deg)}100%{transform:translate(0,108vh) rotate(380deg)}}
+@media(prefers-reduced-motion:reduce){#root>section{animation:none}.pt{display:none}h1,.amp,.crest{animation:none}button:hover,.btn:hover{transform:none}}
+</style>
+</head>
+<body>
+<div class="bg" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="pt" aria-hidden="true"><b style="--l:6%;--s:11px;--d:21s;--t:-3s"></b><b style="--l:17%;--s:14px;--d:27s;--t:-15s"></b><b style="--l:29%;--s:10px;--d:23s;--t:-9s"></b><b style="--l:41%;--s:13px;--d:30s;--t:-21s"></b><b style="--l:53%;--s:11px;--d:25s;--t:-5s"></b><b style="--l:64%;--s:15px;--d:29s;--t:-18s"></b><b style="--l:76%;--s:10px;--d:22s;--t:-12s"></b><b style="--l:88%;--s:13px;--d:26s;--t:-1s"></b><b style="--l:95%;--s:11px;--d:31s;--t:-24s"></b></div>
+<div id="root"></div>
+<div id="admin"></div>
+<script>
+/* ===== EDIT YOUR DETAILS HERE =====
+   Change the text between the quotes. Leave "" to hide something.
+   For lists (sched, faq, guests) put one item per line, with | between the parts:
+     sched: 3:30 pm | Guests arrive
+     faq:   Question | Answer
+     guests: Full Name | seats
+   Keep the backticks ` around the lists. ===== */
+const cfg={
+  n1: "Tin",
+  n2: "Eugene",
+  date: "May 20, 2027",
+  city: "Bacoor",
+  cT: "4:00 pm",
+  cV: "Balai Kubo",
+  rT: "5:00 pm",
+  rV: "Balai Kubo",
+  attire: "White",
+  rsvpBy: "January 2027",
+  form: "https://form.jotform.com/262960963554064",
+  contact: "",
+  gift: "",
+  story: "",
+  sched: "",
+  faq: "",
+  guests: `Joanna Coste | 2
+Andrei Luzana | 2
+John Myr Coste | 2
+Helena Coste | 2
+Judith Martinez | 1
+Judith Varela | 1
+Jericho Lopera | 1`,
+};
+</script>
+<script>
+const $=s=>document.querySelector(s);
+const E=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const N=s=>String(s).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^\p{L}\p{N} ]/gu,' ').replace(/\s+/g,' ').trim();
+const guests=()=>cfg.guests.split('\n').map(l=>{const p=l.split('|');return{name:p[0].trim(),seats:(p[1]||'').trim()}}).filter(g=>g.name);
+const F=[['n1','Partner 1 name'],['n2','Partner 2 name'],['date','Wedding date','e.g. June 14, 2027'],['city','City'],['cT','Ceremony time'],['cV','Ceremony venue and address'],['rT','Reception time'],['rV','Reception venue and address'],['attire','Dress code'],['rsvpBy','Reply-by date'],['form','Reply form link (Jotform)'],['contact','Contact for guests who prefer to reply by phone or message','e.g. a name and number'],['gift','A note on gifts (optional)','e.g. Your presence is the only gift we need.']];
+
+const SP='<svg class="sp" viewBox="0 0 240 40" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"><path d="M10 20h220"/><path d="M120 20c-10-14-24-16-34-12 6 10 20 14 34 12zM120 20c10-14 24-16 34-12-6 10-20 14-34 12z"/><path d="M60 20c-6-8-14-9-20-7 4 6 12 8 20 7zM180 20c6-8 14-9 20-7-4 6-12 8-20 7z"/></svg>';
+function cd(){const t=Date.parse(cfg.date);if(isNaN(t))return'';const n=Math.ceil((t-Date.now())/864e5);return n>0?'<div class="k">'+n+(n==1?' DAY':' DAYS')+' TO GO</div>':''}
+let io;
+function rv(){
+const r=$('#root');
+if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+r.classList.add('on');
+if(io)io.disconnect();
+io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.2});
+r.querySelectorAll('h2,.grid>div,form,.sig,.sp,.tl>div,details,.story').forEach(el=>{if(!el.classList.contains('sp'))el.classList.add('rv');io.observe(el)});
+}
+const L=s=>(s||'').split('\n').map(l=>{const i=l.indexOf('|');return i<0?[l.trim(),'']:[l.slice(0,i).trim(),l.slice(i+1).trim()]}).filter(x=>x[0]);
+const T=[['story','Our story (optional)','How you met, in a few lines…',5],['sched','Schedule: one per line as Time | Event','3:30 pm | Guests arrive\n4:00 pm | Ceremony',6],['faq','Good to know: one per line as Question | Answer','Is the ceremony unplugged? | We invite you to be fully present…',8]];
+function cal(){
+const c=cfg,d=Date.parse(c.date+' '+(c.cT||'')),t=Date.parse(c.date);
+if(isNaN(d)&&isNaN(t))return'';
+const z=n=>String(n).padStart(2,'0'),g=o=>o.getFullYear()+z(o.getMonth()+1)+z(o.getDate()),f=o=>g(o)+'T'+z(o.getHours())+z(o.getMinutes())+'00';
+const r=!isNaN(d)?f(new Date(d))+'/'+f(new Date(d+144e5)):g(new Date(t))+'/'+g(new Date(t+864e5));
+return'https://calendar.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent(c.n1+' & '+c.n2+' Wedding')+'&dates='+r+'&location='+encodeURIComponent([c.cV,c.city].filter(Boolean).join(', '));
+}
+function render(){
+const c=cfg,d=[['Ceremony',c.cT,c.cV],['Reception',c.rT,c.rV],['Attire',c.attire,'']].filter(x=>x[1]||x[2]);
+const where=[c.cV,c.city].filter(Boolean).join(' '),cl=cal(),sc=L(c.sched),fq=L(c.faq);
+const lk=(u,t)=>'<a class="btn o" target="_blank" rel="noopener" href="'+E(u)+'">'+t+'</a>';
+const S=[
+'<div class="crest">'+E((c.n1||'').charAt(0)+' · '+(c.n2||'').charAt(0))+'</div><div class="k">TOGETHER WITH THEIR FAMILIES</div>'+SP+'<h1>'+E(c.n1)+'</h1><div class="amp">&amp;</div><h1>'+E(c.n2)+'</h1>'+SP+'<div class="k">INVITE YOU TO CELEBRATE THEIR WEDDING</div>'+((c.date||c.city)?'<div class="dt">'+[c.date,c.city].filter(Boolean).map(E).join(' &nbsp;·&nbsp; ')+'</div>':'')+cd(),
+c.story?SP+'<h2>Our Story</h2><p class="story">'+E(c.story).replace(/\n/g,'<br>')+'</p>':'',
+d.length?SP+'<h2>The Celebration</h2><div class="grid">'+d.map(x=>'<div><div class="k">'+x[0].toUpperCase()+'</div><div class="big">'+E(x[1])+'</div><p>'+E(x[2]).replace(/\n/g,'<br>')+'</p></div>').join('')+'</div>'+((where||cl)?'<div class="lk">'+(where?lk('https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(where),'GET DIRECTIONS'):'')+(cl?lk(cl,'ADD TO CALENDAR'):'')+'</div>':''):'',
+sc.length?SP+'<h2>The Day</h2><div class="tl">'+sc.map(x=>'<div><span class="big">'+E(x[0])+'</span><span>'+E(x[1])+'</span></div>').join('')+'</div>':'',
+fq.length?SP+'<h2>Good to Know</h2><div class="qs">'+fq.map(x=>'<details><summary>'+E(x[0])+'</summary><p>'+E(x[1])+'</p></details>').join('')+'</div>':'',
+SP+'<h2>RSVP</h2>'+(c.rsvpBy?'<div class="k">KINDLY REPLY BY '+E(c.rsvpBy.toUpperCase())+'</div>':'')+(guests().length?'<p>Please enter your name exactly as it appears on your invitation. Only guests on our list can respond.</p><form id="f"><label for="g">FULL NAME</label><input id="g" autocomplete="name"><button>FIND MY INVITATION</button></form><div id="res" aria-live="polite" style="width:100%;display:flex;justify-content:center"></div>':'<p>RSVP opens soon.</p>')+(c.contact?'<p>Prefer to reply another way? '+E(c.contact)+'</p>':''),
+(c.gift?'<p>'+E(c.gift)+'</p>':'')+'<div class="sig">With love, '+E(c.n1)+' &amp; '+E(c.n2)+'</div>'
+].filter(Boolean);
+$('#root').innerHTML=S.map((h,i)=>'<section'+(i%2?' class="alt"':'')+'>'+h+'</section>').join('');
+const f=$('#f');if(f)f.onsubmit=e=>{e.preventDefault();find($('#g').value)};
+rv();
+}
+
+function find(v){
+const q=N(v),g=guests().find(x=>N(x.name)===q),r=$('#res');
+if(!q){r.innerHTML='';return}
+if(!g){r.innerHTML='<div class="card"><div class="k">NAME NOT FOUND</div><div class="big">We couldn’t find that name on our guest list</div><p>Please check the spelling, or contact '+E(cfg.n1)+' or '+E(cfg.n2)+' if you believe this is a mistake.</p></div>';return}
+r.innerHTML='<div class="card"><div class="big">Welcome, '+E(g.name)+'</div>'+(g.seats?'<p>Seats reserved for your party: '+E(g.seats)+'</p>':'')+'<div class="row"><button type="button" data-r="Accepts">ACCEPTS</button><button type="button" data-r="Declines">DECLINES</button></div><div id="go"></div></div>';
+r.querySelectorAll('[data-r]').forEach(b=>b.onclick=()=>{
+r.querySelectorAll('[data-r]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
+const m={name:g.name,reply:b.dataset.r,seats:g.seats};
+const u=/^https:\/\//.test(cfg.form)?cfg.form.replace(/\{(name|reply|seats)\}/g,(_,k)=>encodeURIComponent(m[k])):'';
+$('#go').innerHTML=u?'<p>One last step: send your reply on our form.</p><a class="btn" target="_blank" rel="noopener" href="'+E(u)+'">CONTINUE TO REPLY FORM</a>':'<p>The reply form isn’t connected yet. Please check back soon.</p>';
+});
+}
+
+function edit(){
+const a=$('#admin'),b=document.createElement('button');
+b.className='edit';b.type='button';b.textContent='EDIT INVITATION';b.onclick=open;a.innerHTML='';a.appendChild(b);
+}
+function open(){
+$('#admin').innerHTML='<div class="pn"><h2>Edit invitation</h2><p>Leave anything blank to hide it. Saving updates the live page for everyone.</p>'+
+F.map(f=>'<label>'+f[1].toUpperCase()+'<input data-k="'+f[0]+'" value="'+E(cfg[f[0]])+'" placeholder="'+E(f[2]||'')+'"></label>').join('')+
+T.map(t=>'<label>'+t[1].toUpperCase()+'<textarea data-k="'+t[0]+'" rows="'+t[3]+'" placeholder="'+E(t[2])+'">'+E(cfg[t[0]])+'</textarea></label>').join('')+
+'<p>Paste your Jotform share link above. Optional: in a pre-filled link, {name}, {reply} and {seats} are replaced with each guest’s answers.</p><label>GUEST LIST: ONE PER LINE, AS NAME | SEATS<textarea data-k="guests" rows="10" placeholder="Maria Santos | 2">'+E(cfg.guests)+'</textarea></label><div class="row"><button id="sv" type="button" style="background:var(--ink);color:var(--bg)">SAVE AND PUBLISH</button><button id="cx" type="button">CANCEL</button></div><div id="mg" role="status"></div></div>';
+$('#cx').onclick=edit;
+$('#sv').onclick=save;
+}
+async function save(){
+document.querySelectorAll('[data-k]').forEach(i=>cfg[i.dataset.k]=i.value.trim());
+render();
+const m=$('#mg');
+try{
+const a=window.claude&&await claude.use('artifact');
+if(!a){m.textContent='Publishing isn’t available in this view.';return}
+const d=document.documentElement.cloneNode(true);
+d.querySelector('#root').innerHTML='';d.querySelector('#root').removeAttribute('class');d.querySelector('#admin').innerHTML='';d.removeAttribute('data-theme');d.removeAttribute('style');
+d.querySelector('#cfg').textContent=JSON.stringify(cfg).replace(/</g,'\\u003c');
+m.textContent='Publishing…';
+await a.publish('<!doctype html>\n'+d.outerHTML);
+}catch(e){m.textContent='Couldn’t publish: '+(e&&(e.code||e.message)||'unknown error')}
+}
+
+render();
+(async()=>{try{const u=window.claude&&await claude.use('user');if(u&&(u.isOwner()||u.canEdit()))edit()}catch(e){}})();
+</script>
+
+
+</body></html>
